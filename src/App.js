@@ -7,6 +7,8 @@ import DiscoverMoviesPage from "./pages/DiscoverMoviesPage";
 import NavBar from "./Components/NavBar";
 
 function App() {
+  /* const apiKey = "e52a9138"; */
+
   return (
     <div className="App">
       <NavBar />
