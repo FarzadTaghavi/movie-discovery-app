@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+
+.movies {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movies h1 {
+  font-size: 1.5rem;
+}
+
+.discover {
+  float: left;
+  margin: 20px;
+}
+
+.discover button {
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.navbar a {
+  margin: 5px 5px 5px 5px;
+  text-decoration: underline;
+}
+
+.navbar {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.active {
+  color: red;
+}

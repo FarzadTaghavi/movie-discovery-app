@@ -3,13 +3,13 @@ import axios from "axios";
 
 export default function DiscoverMoviesPage() {
   const [searchText, set_searchText] = useState("");
-  const [searchMode, setSearchMode] = useState("idle");
+  const [searchMode, setSearchMode] = useState("status: idle");
   const [movies, setMovies] = useState([]);
 
   const search = async () => {
     const queryParam = encodeURIComponent(searchText);
 
-    setSearchMode("searching");
+    setSearchMode("status: searching");
 
     const data = await axios.get(
       `https://omdbapi.com/?apikey=e52a9138&s=${queryParam}`
@@ -17,7 +17,7 @@ export default function DiscoverMoviesPage() {
 
     console.log("Success!", data);
 
-    setSearchMode("done");
+    setSearchMode("status: done");
 
     setMovies(data.data.Search);
 
@@ -27,7 +27,7 @@ export default function DiscoverMoviesPage() {
   };
 
   return (
-    <div>
+    <div className="discover">
       <h1>Discover some movies!</h1>
       <div>{searchMode}</div>
       <p>
@@ -38,7 +38,7 @@ export default function DiscoverMoviesPage() {
         />
         <button onClick={search}>Search</button>
       </p>
-      <div>
+      <div className="movies">
         {movies.map((movie, index) => {
           return (
             <div key={index}>
