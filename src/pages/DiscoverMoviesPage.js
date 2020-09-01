@@ -23,18 +23,7 @@ export default function DiscoverMoviesPage() {
 
     console.log(data.data.Search);
 
-    /*{ status: "idle" }
-    { status: "searching" }
-    { status: "done", data: ... } */
-
     console.log("Start searching for:", searchText);
-    /* if (searchText === "") {
-      setSearchMode("status: idle");
-    } else if (searchText === searchText) {
-      setSearchMode("status: searching");
-    } else {
-      setSearchMode("status: done");
-    } */
   };
 
   return (
@@ -50,13 +39,13 @@ export default function DiscoverMoviesPage() {
         <button onClick={search}>Search</button>
       </p>
       <div>
-        {movies.map((movie) => {
+        {movies.map((movie, index) => {
           return (
-            <div>
+            <div key={index}>
               <h1>
                 {movie.Title} ({movie.Year})
               </h1>
-              <img src={movie.Poster} />
+              <img alt={movie.Title} src={movie.Poster} />
             </div>
           );
         })}
