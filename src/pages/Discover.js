@@ -42,6 +42,7 @@ export default function DiscoverMoviesPage() {
         <input
           type="text"
           value={searchText}
+          placeholder="Enter name"
           onChange={(e) => set_searchText(e.target.value)}
         />
         <button onClick={search}>Search</button>
