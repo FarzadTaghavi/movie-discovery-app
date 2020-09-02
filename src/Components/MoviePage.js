@@ -11,7 +11,7 @@ export default function MoviePage() {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(
-        `http://www.omdbapi.com/?i=${route_parameters.imdb_id}&plot=full&apikey=e52a9138&s`
+        `https://www.omdbapi.com/?i=${route_parameters.imdb_id}&plot=full&apikey=e52a9138&s`
       );
       console.log("FETCHED MOVIE:", res.data);
       set_movieData(res.data);
