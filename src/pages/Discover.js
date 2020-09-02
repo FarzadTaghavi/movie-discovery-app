@@ -1,30 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 export default function DiscoverMoviesPage() {
   const [searchText, set_searchText] = useState("");
   const [searchMode, setSearchMode] = useState("status: idle");
   const [movies, setMovies] = useState([]);
+  const history = useHistory();
+  const params = useParams();
 
   const search = async () => {
-    const queryParam = encodeURIComponent(searchText);
-
-    setSearchMode("status: searching");
-
-    const data = await axios.get(
-      `https://omdbapi.com/?apikey=e52a9138&s=${queryParam}`
-    );
-
-    console.log("Success!", data);
-
-    setSearchMode("status: done");
-
-    setMovies(data.data.Search);
-
-    console.log(data.data.Search);
-
-    console.log("Start searching for:", searchText);
+    const routeParam = encodeURIComponent(searchText);
+    history.push(`/discover/${routeParam}`);
+    console.log("HISTORY:", history);
   };
+
+  useEffect(() => {
+    async function fetchMovieData() {
+      const queryParam = encodeURIComponent(params.searchtext);
+
+      setSearchMode("status: searching");
+
+      const data = await axios.get(
+        `https://omdbapi.com/?apikey=e52a9138&s=${queryParam}`
+      );
+
+      console.log("Success!", data);
+
+      setSearchMode("status: done");
+
+      setMovies(data.data.Search);
+    }
+    fetchMovieData();
+  }, [params]);
 
   return (
     <div className="discover">
@@ -41,12 +49,12 @@ export default function DiscoverMoviesPage() {
       <div className="movies">
         {movies.map((movie, index) => {
           return (
-            <div key={index}>
-              <h1>
-                {movie.Title} ({movie.Year})
-              </h1>
-              <img alt={movie.Title} src={movie.Poster} />
-            </div>
+            <Link key={index} to={`/movie/${movie.imdbID}`}>
+              <div>
+                <h1>{movie.Title}</h1>
+                <img alt={movie.Title} src={movie.Poster} />
+              </div>
+            </Link>
           );
         })}
       </div>
