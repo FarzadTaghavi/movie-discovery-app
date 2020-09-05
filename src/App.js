@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
+import AboutPage from "./pages/HomePage";
 import Discover from "./pages/Discover";
 import NavBar from "./Components/NavBar";
 import DetailsPage from "./Components/DetailsPage";

@@ -53,7 +53,6 @@ const Discover = () => {
         <button type="submit">Search</button> {/* simple button */}
         {movies.map((m /* maps over every movie stored in the state */) => (
           <div key={m.imdbID}>
-            {" "}
             {/* without a unique key the page will throw an error because React wants to know exactly what has changed */}
             <h2>{m.Title}</h2> {/* displays the title of the movie */}
             <img alt={m.Description} src={m.Poster} />
