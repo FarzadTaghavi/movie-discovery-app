@@ -40,26 +40,17 @@ const Discover = () => {
   return (
     <div>
       <form onSubmit={setSearchUrl}>
-       {/*  /* simply calls the setSearchUrl function on form submit */}
-        <input /* simple input field */
-          onChange={(e) =>
-            setSearchTerm(e.target.value)
-          } /* sets the user's searchterm to state */
-          value={
-            searchTerm
-          } /* sets the search term to the Value field of the form */
+        <input
+          onChange={(e) => setSearchTerm(e.target.value)}
+          value={searchTerm}
         />
-        <button type="submit">Search</button> {/* simple button */}
-        {/* /* maps over every movie stored in the state */}
-        {movies.map((m  => (
+        <button type="submit">Search</button>
+        {movies.map((m) => (
           <div key={m.imdbID}>
-            {/* without a unique key the page will throw an error because React wants to know exactly what has changed */}
-            <h2>{m.Title}</h2> {/* displays the title of the movie */}
+            <h2>{m.Title}</h2>
             <img alt={m.Description} src={m.Poster} />
-            {/* displays the image of the movie */}
             <p>
-              <Link to={`/details/${m.imdbID}`}>See Details</Link>{" "}
-              {/* a link that sends the user to the details page of the specific movie */}
+              <Link to={`/details/${m.imdbID}`}>See Details</Link>
             </p>
           </div>
         ))}
