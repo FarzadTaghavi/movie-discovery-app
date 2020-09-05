@@ -18,7 +18,7 @@ const Discover = () => {
       const queryParam = encodeURIComponent(params.textToSearch); // this will be undefined (eg .com/discover/undefined) on first page load but will hold a value (searchterm) after a search action
       const response = await axios.get(
         // this simply runs the API call
-        `http://www.omdbapi.com/?i=tt3896198&apikey=f0d0fe5&s=${queryParam}` //${queryParam is the encoded searchterm}
+        `https://www.omdbapi.com/?i=tt3896198&apikey=f0d0fe5&s=${queryParam}` //${queryParam is the encoded searchterm}
       );
       console.log("What Did The API Fetch?", response.data); // lets see what our data looks like
       setMovies(response.data.Search); // after a closer look we find the specific data inside the Search field and set the state

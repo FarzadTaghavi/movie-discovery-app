@@ -13,7 +13,7 @@ const DetailsPage = () => {
       const movieId = params.movieId; // this assigns the movieId that we got from the URL to the const movieId
       const response = await axios.get(
         // simple API fetch
-        `http://www.omdbapi.com/?apikey=f0d0fe5&i=${movieId}` // here we use the const movieId to get the specific movie data
+        `https://www.omdbapi.com/?apikey=f0d0fe5&i=${movieId}` // here we use the const movieId to get the specific movie data
       );
       console.log(response.data); // lets check if the API fetch works
       setMovie(response.data); // It worked! lets add the fetched data to the state
