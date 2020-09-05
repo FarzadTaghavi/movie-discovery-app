@@ -10,7 +10,7 @@ const DetailsPage = () => {
   useEffect(() => {
     const getMovieById = async () => {
       // function that runs to get the movie data by id
-      const movieId = params; // this assigns the movieId that we got from the URL to the const movieId
+      const movieId = params.movieId; // this assigns the movieId that we got from the URL to the const movieId
       const response = await axios.get(
         // simple API fetch
         `http://www.omdbapi.com/?apikey=f0d0fe5&i=${movieId}` // here we use the const movieId to get the specific movie data
@@ -19,7 +19,7 @@ const DetailsPage = () => {
       setMovie(response.data); // It worked! lets add the fetched data to the state
     };
     getMovieById(); // always call the function at the end when using the useEffect hook
-  }, [params]); // this lets the useEffect listen to changes. In this case run everytime the const params changes.
+  }, [params.movieId]); // this lets the useEffect listen to changes. In this case run everytime the const params changes.
 
   return (
     <div>
