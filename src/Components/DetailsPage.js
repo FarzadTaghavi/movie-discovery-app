@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const DetailsPage = () => {
   const [movie, setMovie] = useState(null); // the state is set to null
@@ -26,10 +26,12 @@ const DetailsPage = () => {
       {movie ? ( // simple ternary operator that checks if there is any movie data, if yes it shows all the information below if not it shows loading
         <div>
           <h2>{movie.Title}</h2>
+          <img alt={movie.Description} src={movie.Poster} />
           <h2>{movie.Actors}</h2>
           <h2>{movie.Year}</h2>
           <h2>{movie.Director}</h2>
           <h2>{movie.Genre}</h2>
+          <Link to={`/discover/`}>Do another search</Link>
         </div>
       ) : (
         <div>Loading...</div>

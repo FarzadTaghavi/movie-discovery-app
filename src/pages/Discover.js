@@ -56,7 +56,8 @@ const Discover = () => {
             {" "}
             {/* without a unique key the page will throw an error because React wants to know exactly what has changed */}
             <h2>{m.Title}</h2> {/* displays the title of the movie */}
-            <img src={m.Poster} /> {/* displays the image of the movie */}
+            <img alt={m.Description} src={m.Poster} />
+            {/* displays the image of the movie */}
             <p>
               <Link to={`/details/${m.imdbID}`}>See Details</Link>{" "}
               {/* a link that sends the user to the details page of the specific movie */}
