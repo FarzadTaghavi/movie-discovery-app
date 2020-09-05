@@ -40,8 +40,7 @@ const Discover = () => {
   return (
     <div>
       <form onSubmit={setSearchUrl}>
-        {" "}
-        {/* simply calls the setSearchUrl function on form submit */}
+       {/*  /* simply calls the setSearchUrl function on form submit */}
         <input /* simple input field */
           onChange={(e) =>
             setSearchTerm(e.target.value)
@@ -51,7 +50,8 @@ const Discover = () => {
           } /* sets the search term to the Value field of the form */
         />
         <button type="submit">Search</button> {/* simple button */}
-        {movies.map((m /* maps over every movie stored in the state */) => (
+        {/* /* maps over every movie stored in the state */}
+        {movies.map((m  => (
           <div key={m.imdbID}>
             {/* without a unique key the page will throw an error because React wants to know exactly what has changed */}
             <h2>{m.Title}</h2> {/* displays the title of the movie */}
